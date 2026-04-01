@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIIMUPASS | Uganda's Unified Digital Mobility Platform — Smart Parking, E-Tolls & Rail Ticketing</title>
+<meta name="description" content="SIIMUPASS by RopaTech Solutions is Uganda's leading fintech platform unifying smart parking, expressway e-tolls, and railway ticketing into one seamless digital wallet. Eliminating cash friction. Maximizing infrastructure revenue.">
+<meta name="keywords" content="Uganda fintech, digital mobility Uganda, smart parking Uganda, e-toll Uganda, railway ticketing Uganda, QR payment Uganda, Kampala infrastructure, RopaTech Solutions, mobile money Uganda, SIIMUPASS">
+<meta name="author" content="RopaTech Solutions — SIIMUPASS Uganda">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="SIIMUPASS | Uganda's Unified Digital Mobility Platform">
+<meta property="og:description" content="One platform. Four pillars. Smart Parking, Highway Express, Railway Ticketing & Public Transport — powered by a unified digital wallet. Built by RopaTech Solutions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://siimupass.ug">
+<meta property="og:image" content="https://images.unsplash.com/photo-1598971625983-04e4c30c82fb?q=80&w=1200">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SIIMUPASS | Uganda's Digital Mobility Revolution">
+<meta name="twitter:description" content="Unified QR-powered payments for parking, tolls and rail across Uganda. By RopaTech Solutions.">
+<link rel="canonical" href="https://siimupass.ug">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SIIMUPASS — RopaTech Solutions",
+  "url": "https://siimupass.ug",
+  "description": "Uganda's unified digital mobility fintech platform",
+  "address": {"@type": "PostalAddress", "streetAddress": "Aga House 2nd Floor, Mawanda Road", "addressCountry": "UG"},
+  "telephone": "+256777766753",
+  "email": "Info@ropatech.net",
+  "areaServed": "Uganda"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d1117;
+    --ink-light: #374151;
+    --ink-muted: #6b7280;
+    --surface: #ffffff;
+    --surface-2: #f8f9fb;
+    --surface-3: #f1f3f5;
+    --accent: #1a6b3c;
+    --accent-light: #22c55e;
+    --accent-pale: #dcfce7;
+    --blue: #1d4ed8;
+    --blue-dark: #1e3a8a;
+    --blue-pale: #dbeafe;
+    --amber: #d97706;
+    --amber-pale: #fef3c7;
+    --purple: #7c3aed;
+    --purple-pale: #ede9fe;
+    --border: #e5e7eb;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--ink); overflow-x: hidden; }
+  h1,h2,h3,h4 { font-family: 'Sora', sans-serif; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.94); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem; height: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--ink); display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-bolt { width: 28px; height: 28px; background: linear-gradient(135deg, var(--accent), #15803d); border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; box-shadow: 0 2px 8px rgba(26,107,60,0.3); }
+  .nav-by { font-size: 0.65rem; font-weight: 400; color: var(--ink-muted); margin-left: 4px; font-family: 'DM Sans', sans-serif; }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .btn-nav { background: var(--accent); color: #fff; padding: 0.55rem 1.4rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-decoration: none; letter-spacing: 0.04em; transition: all 0.2s; }
+  .btn-nav:hover { background: #155e32; transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; padding-top: 68px;
+    background: #fff;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 40%, #dcfce7 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 15% 80%, #dbeafe 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 90% 90%, #fef3c7 0%, transparent 60%);
+    opacity: 0.65;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 5rem 2rem 4rem; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+  .hero-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-pale); color: var(--accent); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 50px; border: 1px solid #bbf7d0; margin-bottom: 0.5rem; }
+  .hero-pill::before { content: ''; width: 7px; height: 7px; background: var(--accent-light); border-radius: 50%; animation: pulse-dot 2s infinite; }
+  .hero-by { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 6px; }
+  .hero-by strong { color: var(--blue); font-weight: 600; }
+  @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+  h1 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1.25rem; }
+  h1 em { font-style: normal; color: var(--accent); }
+  h1 .bl { color: var(--blue); }
+  .hero-desc { font-size: 1.05rem; color: var(--ink-muted); line-height: 1.75; margin-bottom: 2rem; max-width: 480px; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .btn-primary { background: var(--accent); color: #fff; padding: 0.9rem 1.75rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; box-shadow: 0 4px 16px rgba(26,107,60,0.3); }
+  .btn-primary:hover { background: #155e32; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,107,60,0.35); }
+  .btn-secondary { background: var(--surface); color: var(--ink); padding: 0.9rem 1.75rem; border-radius: 12px; font-weight: 600; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--border); transition: all 0.2s; }
+  .btn-secondary:hover { border-color: var(--ink-light); background: var(--surface-2); transform: translateY(-1px); }
+  .hero-channels { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .hero-channels span { font-size: 0.75rem; color: var(--ink-muted); font-weight: 500; }
+  .channel-badge { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 5px 12px; font-size: 0.75rem; font-weight: 600; color: var(--ink-light); }
+  .hero-visual { position: relative; }
+  .hero-card { background: #fff; border-radius: 24px; box-shadow: var(--shadow-lg); border: 1px solid var(--border); overflow: hidden; }
+  .hero-img { width: 100%; height: 300px; object-fit: cover; display: block; }
+  .hero-floats { display: flex; gap: 10px; margin-top: 12px; }
+  .hero-float-card { flex: 1; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; box-shadow: var(--shadow); }
+  .hfc-num { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--ink); }
+  .hfc-label { font-size: 0.68rem; color: var(--ink-muted); font-weight: 500; margin-top: 2px; }
+
+  /* STRIP */
+  .stats-strip { background: var(--ink); color: #fff; padding: 2rem; }
+  .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; text-align: center; }
+  .stat-num { font-family: 'Sora', sans-serif; font-size: 1.75rem; font-weight: 800; }
+  .stat-num.g { color: #4ade80; }
+  .stat-num.b { color: #93c5fd; }
+  .stat-num.p { color: #c4b5fd; }
+  .stat-num.a { color: #fcd34d; }
+  .stat-label { font-size: 0.78rem; color: #9ca3af; margin-top: 4px; font-weight: 500; }
+
+  /* SECTION COMMONS */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: inline-block; }
+  .section-h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 1rem; line-height: 1.15; }
+  .section-sub { font-size: 1rem; color: var(--ink-muted); line-height: 1.75; max-width: 560px; }
+
+  /* VISION */
+  .vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .vision-points { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .vision-point { display: flex; gap: 1rem; align-items: flex-start; padding: 1.1rem 1.4rem; border-radius: 14px; border: 1px solid var(--border); background: var(--surface); transition: box-shadow 0.2s; }
+  .vision-point:hover { box-shadow: var(--shadow); }
+  .vision-point.bad { border-color: #fecaca; background: #fff5f5; }
+  .vision-point.good { border-color: #bbf7d0; background: #f0fdf4; }
+  .vp-icon { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
+  .vp-icon.bad { background: #fee2e2; color: #dc2626; }
+  .vp-icon.good { background: #dcfce7; color: var(--accent); }
+  .vp-text { font-size: 0.875rem; line-height: 1.6; color: var(--ink-light); }
+  .vp-text strong { display: block; margin-bottom: 2px; color: var(--ink); font-weight: 600; font-size: 0.9rem; }
+  .vision-img-wrap { position: relative; }
+  .vision-img { width: 100%; border-radius: 24px; object-fit: cover; aspect-ratio: 4/3; display: block; box-shadow: var(--shadow-lg); border: 1px solid var(--border); }
+  .vision-float { position: absolute; top: -16px; right: -16px; background: var(--accent); color: #fff; border-radius: 14px; padding: 12px 18px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.82rem; box-shadow: 0 8px 24px rgba(26,107,60,0.35); line-height: 1.4; }
+  .vision-float span { display: block; font-size: 0.68rem; font-weight: 400; opacity: 0.85; margin-top: 2px; }
+
+  /* FEATURES */
+  .features-bg { background: var(--surface-2); }
+  .features-header { text-align: center; margin-bottom: 3.5rem; }
+  .features-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.75rem; }
+  .features-grid .feat-card:first-child { grid-column: span 1; }
+  .feat-card { background: #fff; border-radius: 22px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s; position: relative; display: flex; flex-direction: column; }
+  .feat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .feat-card.wide { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; }
+  .feat-card.wide .feat-img { height: 100%; aspect-ratio: unset; }
+  .feat-img { width: 100%; height: 200px; object-fit: cover; display: block; flex-shrink: 0; }
+  .feat-body { padding: 1.5rem; flex-grow: 1; }
+  .feat-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 0.9rem; }
+  .feat-icon.g { background: var(--accent-pale); }
+  .feat-icon.b { background: var(--blue-pale); }
+  .feat-icon.p { background: var(--purple-pale); }
+  .feat-icon.a { background: var(--amber-pale); }
+  .feat-title { font-family: 'Sora', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+  .feat-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.65; margin-bottom: 1rem; }
+  .feat-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .feat-bullets li { font-size: 0.8rem; color: var(--ink-light); display: flex; gap: 8px; align-items: flex-start; }
+  .feat-bullets li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+  .feat-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 50px; margin-top: 1rem; }
+  .feat-tag.g { background: var(--accent-pale); color: var(--accent); }
+  .feat-tag.b { background: var(--blue-pale); color: var(--blue); }
+  .feat-tag.p { background: var(--purple-pale); color: var(--purple); }
+  .feat-tag.a { background: var(--amber-pale); color: var(--amber); }
+
+  /* PAYMENT CHANNELS */
+  .channels-section { background: var(--ink); color: #fff; }
+  .channels-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .channels-section .section-tag { color: #4ade80; }
+  .channels-section .section-h2 { color: #fff; }
+  .channels-section .section-sub { color: #9ca3af; max-width: 400px; }
+  .channels-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .channel-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 1.25rem; transition: all 0.2s; }
+  .channel-card:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
+  .channel-card .ch-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .channel-card .ch-title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.9rem; color: #fff; margin-bottom: 3px; }
+  .channel-card .ch-desc { font-size: 0.75rem; color: #9ca3af; }
+  .channel-card.coming { opacity: 0.6; }
+  .coming-label { font-size: 0.65rem; font-weight: 700; background: rgba(251,191,36,0.2); color: #fbbf24; padding: 2px 8px; border-radius: 50px; display: inline-block; margin-top: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .channels-visual { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 2rem; }
+  .cv-title { font-family: 'Sora', sans-serif; font-weight: 700; color: #fff; font-size: 1rem; margin-bottom: 1.5rem; }
+  .cv-row { display: flex; gap: 10px; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .cv-row:last-child { border-bottom: none; }
+  .cv-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .cv-text { font-size: 0.85rem; color: #d1d5db; flex-grow: 1; }
+  .cv-val { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.85rem; color: #4ade80; }
+
+  /* BENEFITS */
+  .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+  .benefit-panel { border-radius: 22px; padding: 2rem; }
+  .benefit-panel.users { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .benefit-panel.providers { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .bp-title { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 10px; }
+  .bp-title.g { color: var(--accent); }
+  .bp-title.b { color: var(--blue); }
+  .bp-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .bp-icon.g { background: #dcfce7; }
+  .bp-icon.b { background: #dbeafe; }
+  .bp-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .bp-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.875rem; color: var(--ink-light); line-height: 1.55; }
+  .bp-list li::before { content: '✓'; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .bp-list.g li::before { color: var(--accent); }
+  .bp-list.b li::before { color: var(--blue); }
+
+  /* HOW IT WORKS */
+  .how-bg { background: var(--surface-2); }
+  .how-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; margin-top: 3.5rem; position: relative; }
+  .how-grid::before { content: ''; position: absolute; top: 31px; left: 12%; right: 12%; height: 2px; background: linear-gradient(90deg, var(--accent-light), var(--blue)); z-index: 0; opacity: 0.4; }
+  .how-step { text-align: center; position: relative; z-index: 1; }
+  .how-num { width: 62px; height: 62px; border-radius: 50%; background: #fff; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--ink); box-shadow: var(--shadow); transition: all 0.3s; }
+  .how-step:hover .how-num { background: var(--accent); color: #fff; border-color: var(--accent); transform: scale(1.1); box-shadow: 0 8px 20px rgba(26,107,60,0.3); }
+  .how-title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .how-desc { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.6; }
+
+  /* TRACTION */
+  .traction-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .traction-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+  .traction-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .traction-check { width: 26px; height: 26px; border-radius: 8px; background: var(--accent-pale); color: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 13px; font-weight: 700; margin-top: 2px; }
+  .traction-text { font-size: 0.875rem; color: var(--ink-light); line-height: 1.6; }
+  .traction-text strong { display: block; color: var(--ink); font-weight: 600; font-size: 0.9rem; margin-bottom: 2px; }
+  .traction-img { width: 100%; border-radius: 22px; object-fit: cover; aspect-ratio: 4/3; display: block; box-shadow: var(--shadow-lg); }
+  .cta-link { margin-top: 2rem; display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-weight: 600; font-size: 0.875rem; text-decoration: none; border-bottom: 1.5px solid #bbf7d0; padding-bottom: 2px; transition: all 0.2s; }
+  .cta-link:hover { border-color: var(--accent); gap: 10px; }
+
+  /* CTA */
+  .cta-section { background: var(--ink); color: #fff; text-align: center; padding: 7rem 2rem; position: relative; overflow: hidden; }
+  .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, #1a3a2a 0%, transparent 70%); }
+  .cta-content { position: relative; z-index: 1; }
+  .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1.25rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .cta-section h2 .green { color: #4ade80; }
+  .cta-section p { font-size: 1rem; color: #9ca3af; max-width: 540px; margin: 0 auto 3rem; line-height: 1.75; }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-cta { background: var(--accent); color: #fff; padding: 1rem 2.25rem; border-radius: 14px; font-weight: 700; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; box-shadow: 0 4px 24px rgba(34,197,94,0.3); }
+  .btn-cta:hover { background: #15803d; transform: translateY(-2px); }
+  .btn-cta-out { background: transparent; color: #fff; padding: 1rem 2.25rem; border-radius: 14px; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid rgba(255,255,255,0.2); transition: all 0.2s; }
+  .btn-cta-out:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); }
+  .partners-row { display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 4rem; flex-wrap: wrap; }
+  .partner-badge { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); color: #d1d5db; font-size: 0.78rem; font-weight: 600; padding: 7px 16px; border-radius: 50px; }
+
+  /* CONTACT */
+  .contact-section { background: var(--surface-2); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-cards { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .contact-card { display: flex; gap: 1rem; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 1.1rem 1.4rem; transition: box-shadow 0.2s; }
+  .contact-card:hover { box-shadow: var(--shadow); }
+  .cc-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-pale); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .cc-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); }
+  .cc-val { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-top: 1px; }
+  .cc-val a { color: var(--ink); text-decoration: none; }
+  .cc-val a:hover { color: var(--accent); }
+  .contact-map-placeholder { background: #fff; border: 1px solid var(--border); border-radius: 22px; overflow: hidden; height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--ink-muted); gap: 12px; box-shadow: var(--shadow); }
+  .map-icon { font-size: 3rem; }
+  .map-text { font-size: 0.875rem; text-align: center; line-height: 1.6; }
+  .map-text strong { display: block; color: var(--ink); font-family: 'Sora', sans-serif; font-size: 1rem; margin-bottom: 4px; }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: #fff; padding: 2.5rem 2rem; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.1rem; color: #fff; }
+  .footer-logo span { color: #4ade80; }
+  .footer-sub { font-size: 0.72rem; color: #6b7280; display: block; margin-top: 3px; font-family: 'DM Sans', sans-serif; }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-size: 0.83rem; color: #9ca3af; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: #4ade80; }
+  .footer-copy { font-size: 0.78rem; color: #6b7280; }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+  .delay-4 { transition-delay: 0.4s; }
+
+  /* RESPONSIVE */
+  @media(max-width:960px) {
+    .hero-content, .vision-grid, .traction-grid, .channels-inner, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .feat-card.wide { grid-column: span 1; display: flex; flex-direction: column; }
+    .feat-card.wide .feat-img { height: 200px; }
+    .how-grid { grid-template-columns: repeat(2,1fr); }
+    .how-grid::before { display: none; }
+    .stats-inner { grid-template-columns: repeat(2,1fr); }
+    .vision-float { position: relative; top: auto; right: auto; display: inline-block; margin-top: 1rem; }
+    nav .btn-nav { display: none; }
+    h1 { font-size: 2.2rem; }
+    section { padding: 4rem 1.5rem; }
+  }
+  @media(max-width:600px) {
+    .how-grid, .channels-grid { grid-template-columns: 1fr; }
+    .stats-inner { grid-template-columns: repeat(2,1fr); }
+    section { padding: 3.5rem 1.25rem; }
+    .hero-floats { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Main Navigation">
+  <a href="#" class="nav-logo" aria-label="SIIMUPASS Home">
+    <span class="nav-bolt">⚡</span>
+    SIIMUPASS
+    <span class="nav-by">by <strong>RopaTech Solutions</strong></span>
+  </a>
+  <div class="nav-links">
+    <a href="#vision">Problem</a>
+    <a href="#features">Platform</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:Info@ropatech.net" class="btn-nav">Partner With Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" role="banner">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="fade-up">
+      <div class="hero-pill">Product Ready for Rollout</div>
+      <p class="hero-by">Developed by <strong>RopaTech Solutions</strong> · Kampala, Uganda</p>
+      <h1>
+        The Digital Pulse of<br>
+        <em>Uganda's</em> <span class="bl">Infrastructure.</span>
+      </h1>
+      <p class="hero-desc">A unified fintech ecosystem removing friction from parking, expressway tolls, and railway ticketing — one QR code, one wallet, one seamless travel experience.</p>
+      <div class="hero-actions">
+        <a href="#features" class="btn-primary">Explore the Platform →</a>
+        <a href="https://arnab1811.github.io/SIMUPASS/SIMUVID.mp4" target="_blank" rel="noopener noreferrer" class="btn-secondary">▶ Watch Demo</a>
+      </div>
+      <div class="hero-channels">
+        <span>Accepts:</span>
+        <span class="channel-badge">MTN Mobile Money</span>
+        <span class="channel-badge">Airtel Money</span>
+        <span class="channel-badge">Bank Accounts</span>
+      </div>
+    </div>
+    <div class="hero-visual fade-up delay-2">
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1598971625983-04e4c30c82fb?q=80&w=800&auto=format&fit=crop" alt="Kampala urban traffic — SIIMUPASS addresses Uganda's mobility congestion" class="hero-img">
+      </div>
+      <div class="hero-floats">
+        <div class="hero-float-card"><div class="hfc-num" style="color:var(--accent)">99%</div><div class="hfc-label">Dev Complete</div></div>
+        <div class="hero-float-card"><div class="hfc-num" style="color:var(--blue)">Live</div><div class="hfc-label">Digital Wallet</div></div>
+        <div class="hero-float-card"><div class="hfc-num" style="color:var(--amber)">4-in-1</div><div class="hfc-label">Services</div></div>
+        <div class="hero-float-card"><div class="hfc-num" style="color:var(--purple)">QR</div><div class="hfc-label">Unified Pay</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STATS STRIP -->
+<div class="stats-strip" role="region" aria-label="Key Platform Statistics">
+  <div class="stats-inner">
+    <div><div class="stat-num g">99%</div><div class="stat-label">Development Finalized</div></div>
+    <div><div class="stat-num b">Live</div><div class="stat-label">Integrated Digital Wallet</div></div>
+    <div><div class="stat-num p">Active</div><div class="stat-label">Government Engagement</div></div>
+    <div><div class="stat-num a">4-in-1</div><div class="stat-label">Unified QR Platform</div></div>
+  </div>
+</div>
+
+<!-- VISION / PROBLEM -->
+<section id="vision" aria-labelledby="vision-heading">
+  <div class="container vision-grid">
+    <div class="fade-up">
+      <div class="section-tag">The Problem We Solve</div>
+      <h2 class="section-h2" id="vision-heading">From Manual Friction<br>to <span style="color:var(--blue)">Digital Flow.</span></h2>
+      <p class="section-sub">Transportation and urban mobility services across Uganda face compounding systemic failures that affect passenger convenience, operational efficiency, and revenue management.</p>
+      <div class="vision-points">
+        <div class="vision-point bad">
+          <div class="vp-icon bad">✗</div>
+          <div class="vp-text"><strong>Fragmented payment systems</strong>No single platform connects parking, tolls, and rail — every service demands separate cash or card transactions.</div>
+        </div>
+        <div class="vision-point bad">
+          <div class="vp-icon bad">✗</div>
+          <div class="vp-text"><strong>Revenue leakage from manual systems</strong>Opaque cash handling at toll plazas and parking lots undermines public infrastructure financing at scale.</div>
+        </div>
+        <div class="vision-point bad">
+          <div class="vp-icon bad">✗</div>
+          <div class="vp-text"><strong>Long queues & processing delays</strong>Cash-dependent operations create congestion that compounds daily commuter loss across Kampala's corridors.</div>
+        </div>
+        <div class="vision-point good">
+          <div class="vp-icon good">✓</div>
+          <div class="vp-text"><strong>SIIMUPASS unifies it all</strong>One digital wallet, four mobility verticals, instant QR payments — securing revenue and restoring traffic flow simultaneously.</div>
+        </div>
+      </div>
+    </div>
+    <div class="vision-img-wrap fade-up delay-2">
+      <div class="vision-float">🇺🇬 Built in Uganda<span>Engineered for African cities</span></div>
+      <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?q=80&w=800&auto=format&fit=crop" alt="Digital payment and fintech innovation in Sub-Saharan Africa" class="vision-img">
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES / PILLARS -->
+<section id="features" class="features-bg" aria-labelledby="features-heading">
+  <div class="container">
+    <div class="features-header fade-up">
+      <div class="section-tag">A Unified Platform</div>
+      <h2 class="section-h2" id="features-heading">Four Strategic Pillars</h2>
+      <p class="section-sub" style="margin:0 auto">One digital wallet connects four mobility payment verticals — today and into the future.</p>
+    </div>
+    <div class="features-grid">
+      <article class="feat-card fade-up delay-1">
+        <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=600&auto=format&fit=crop" alt="Smart parking management system in Kampala" class="feat-img">
+        <div class="feat-body">
+          <div class="feat-icon g">🅿️</div>
+          <h3 class="feat-title">Smart Parking</h3>
+          <p class="feat-desc">Digital payments for urban street parking — remove the cash, keep the flow.</p>
+          <ul class="feat-bullets">
+            <li>Locate and pay parking zones digitally</li>
+            <li>Extend sessions remotely via app</li>
+            <li>Real-time validation for parking officers</li>
+            <li>Instant payment confirmation</li>
+          </ul>
+          <span class="feat-tag g">Park Pass</span>
+        </div>
+      </article>
+      <article class="feat-card fade-up delay-2">
+        <img src="https://images.unsplash.com/photo-1621544402532-78de24b9a2a8?q=80&w=600&auto=format&fit=crop" alt="Ajjansi Toll Plaza Uganda — SIIMUPASS expressway e-toll integration" class="feat-img">
+        <div class="feat-body">
+          <div class="feat-icon b">🛣️</div>
+          <h3 class="feat-title">Expressway Toll Payments</h3>
+          <p class="feat-desc">Pay toll charges digitally at Ajjansi and all upcoming expressway plazas — no cash needed at the booth.</p>
+          <ul class="feat-bullets">
+            <li>Prepaid toll wallet with auto-deductions</li>
+            <li>MTN & Airtel Mobile Money supported</li>
+            <li>Transaction history & toll usage tracking</li>
+            <li>Reduces congestion at plazas</li>
+          </ul>
+          <span class="feat-tag b">Toll Pass</span>
+        </div>
+      </article>
+      <article class="feat-card fade-up delay-3">
+        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=600&auto=format&fit=crop" alt="Railway ticketing Uganda — digital QR boarding passes" class="feat-img">
+        <div class="feat-body">
+          <div class="feat-icon p">🚆</div>
+          <h3 class="feat-title">Railway Ticketing</h3>
+          <p class="feat-desc">End-to-end digital ticketing for commuter and long-distance rail in Uganda.</p>
+          <ul class="feat-bullets">
+            <li>Select routes and travel schedules in-app</li>
+            <li>Purchase and receive digital QR tickets</li>
+            <li>Secure QR verification at boarding</li>
+            <li>Reduced queues, improved scheduling</li>
+          </ul>
+          <span class="feat-tag p">Railway Pass</span>
+        </div>
+      </article>
+      <article class="feat-card fade-up delay-4">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=600&auto=format&fit=crop" alt="Future public transport bus and taxi digital payments Uganda" class="feat-img">
+        <div class="feat-body">
+          <div class="feat-icon a">🚌</div>
+          <h3 class="feat-title">Public Transport <span style="font-size:0.75rem;font-weight:500;color:var(--amber)">— Coming Soon</span></h3>
+          <p class="feat-desc">The SIIMUPASS wallet is already designed to absorb bus and taxi fare payments — Uganda's full transport grid in one app.</p>
+          <ul class="feat-bullets">
+            <li>Bus & taxi fare payments via QR</li>
+            <li>Commuter route integration</li>
+            <li>SACCO and operator onboarding</li>
+          </ul>
+          <span class="feat-tag a">Future Rollout</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT CHANNELS -->
+<section class="channels-section" aria-labelledby="channels-heading">
+  <div class="channels-inner">
+    <div class="fade-up">
+      <div class="section-tag">Integrated Payment Infrastructure</div>
+      <h2 class="section-h2" id="channels-heading">Every Way Ugandans Pay — Supported.</h2>
+      <p class="section-sub">SIIMUPASS connects multiple financial systems to ensure seamless, flexible payments for every user, regardless of their preferred channel.</p>
+      <div class="channels-grid">
+        <div class="channel-card">
+          <div class="ch-icon">📱</div>
+          <div class="ch-title">MTN Mobile Money</div>
+          <div class="ch-desc">Uganda's largest mobile money network — instant top-up and payment.</div>
+        </div>
+        <div class="channel-card">
+          <div class="ch-icon">📲</div>
+          <div class="ch-title">Airtel Money</div>
+          <div class="ch-desc">Full Airtel Money integration for seamless wallet funding.</div>
+        </div>
+        <div class="channel-card">
+          <div class="ch-icon">🏦</div>
+          <div class="ch-title">Bank Accounts</div>
+          <div class="ch-desc">Direct bank account linking for larger top-ups and corporate users.</div>
+        </div>
+        <div class="channel-card coming">
+          <div class="ch-icon">💳</div>
+          <div class="ch-title">Card Payments</div>
+          <div class="ch-desc">Visa, Mastercard and debit card integration.</div>
+          <span class="coming-label">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+    <div class="channels-visual fade-up delay-2">
+      <div class="cv-title">How the wallet works</div>
+      <div class="cv-row">
+        <div class="cv-dot" style="background:#4ade80"></div>
+        <div class="cv-text">User funds SIIMUPASS wallet</div>
+        <div class="cv-val">Instant</div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-dot" style="background:#93c5fd"></div>
+        <div class="cv-text">Scans QR at any SIIMUPASS point</div>
+        <div class="cv-val">&lt; 2 sec</div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-dot" style="background:#c4b5fd"></div>
+        <div class="cv-text">Amount auto-deducted from balance</div>
+        <div class="cv-val">Real-time</div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-dot" style="background:#fcd34d"></div>
+        <div class="cv-text">Digital receipt & transaction log</div>
+        <div class="cv-val">Always-on</div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-dot" style="background:#f87171"></div>
+        <div class="cv-text">Revenue forwarded to operator dashboard</div>
+        <div class="cv-val">Auditable</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits" aria-labelledby="benefits-heading">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <div class="section-tag">Why SIIMUPASS</div>
+      <h2 class="section-h2" id="benefits-heading">Built for Everyone in the Ecosystem</h2>
+      <p class="section-sub" style="margin:0 auto">SIIMUPASS delivers measurable value to commuters and to the infrastructure operators who serve them.</p>
+    </div>
+    <div class="benefits-grid fade-up delay-1">
+      <div class="benefit-panel users">
+        <div class="bp-title g"><div class="bp-icon g">👤</div> For Users & Commuters</div>
+        <ul class="bp-list g">
+          <li>Convenient digital payments — no more searching for exact change</li>
+          <li>One account for all mobility services: parking, tolls, and rail</li>
+          <li>Faster, more efficient travel — reduced wait times at every touchpoint</li>
+          <li>Secure transaction history and spending visibility</li>
+          <li>Mobile-first design — works on any smartphone, no bank required</li>
+        </ul>
+      </div>
+      <div class="benefit-panel providers">
+        <div class="bp-title b"><div class="bp-icon b">🏛️</div> For Operators & Government</div>
+        <ul class="bp-list b">
+          <li>Increased payment efficiency — automated collection at scale</li>
+          <li>Improved revenue transparency and real-time audit trails</li>
+          <li>Significantly reduced cash handling risks and leakage</li>
+          <li>Access to live operational dashboards and analytics</li>
+          <li>Foundation for smart transport infrastructure development</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-bg" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <div class="section-tag">Simple by Design</div>
+      <h2 class="section-h2" id="how-heading">How SIIMUPASS Works</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-step fade-up delay-1">
+        <div class="how-num">1</div>
+        <div class="how-title">Create Account</div>
+        <p class="how-desc">Register and set up your SIIMUPASS wallet in under two minutes — mobile-first, no bank account required to start.</p>
+      </div>
+      <div class="how-step fade-up delay-2">
+        <div class="how-num">2</div>
+        <div class="how-title">Fund Wallet</div>
+        <p class="how-desc">Top up via MTN or Airtel Mobile Money, bank transfer, or card — the most accessible channel for you.</p>
+      </div>
+      <div class="how-step fade-up delay-3">
+        <div class="how-num">3</div>
+        <div class="how-title">Scan & Pay</div>
+        <p class="how-desc">At any SIIMUPASS-enabled parking lot, toll gate, or rail station — scan the QR code and transact instantly.</p>
+      </div>
+      <div class="how-step fade-up delay-4">
+        <div class="how-num">4</div>
+        <div class="how-title">Track & Report</div>
+        <p class="how-desc">Government operators access a live dashboard with real-time revenue analytics, audit trails, and compliance data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACTION -->
+<section id="traction" aria-labelledby="traction-heading">
+  <div class="container traction-grid">
+    <div class="fade-up">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="RopaTech Solutions team — SIIMUPASS project delivery" class="traction-img">
+    </div>
+    <div class="fade-up delay-2">
+      <div class="section-tag">Roadmap to Launch</div>
+      <h2 class="section-h2" id="traction-heading">Technology Built.<br>Engagement Underway.</h2>
+      <p class="section-sub">The SIIMUPASS core engine — digital wallet, secure QR protocols, and transaction infrastructure — is 99% finalized. We are in active deployment discussions.</p>
+      <div class="traction-list">
+        <div class="traction-item">
+          <div class="traction-check">✓</div>
+          <div class="traction-text"><strong>Core platform 99% complete</strong>Digital wallet, QR protocols, and multi-channel payment engine fully operational.</div>
+        </div>
+        <div class="traction-item">
+          <div class="traction-check">✓</div>
+          <div class="traction-text"><strong>Government ministry dialogue initiated</strong>Active engagement for regulatory alignment and integration pipelines with transport authorities.</div>
+        </div>
+        <div class="traction-item">
+          <div class="traction-check">✓</div>
+          <div class="traction-text"><strong>Private sector operator outreach active</strong>In discussion with transport operators for pilot deployment at key urban and highway nodes.</div>
+        </div>
+        <div class="traction-item">
+          <div class="traction-check">✓</div>
+          <div class="traction-text"><strong>Seeking strategic funding partnerships</strong>Targeting World Bank, DFI, and private sector investors to support national rollout.</div>
+        </div>
+      </div>
+      <a href="https://arnab1811.github.io/SIMUPASS/general.pdf" class="cta-link" target="_blank" rel="noopener noreferrer">View Full Pitch Presentation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" aria-labelledby="cta-heading">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <h2 id="cta-heading">Partner With Us to<br><span class="green">Scale Uganda's Future.</span></h2>
+    <p>RopaTech Solutions is seeking strategic donor support and funding partnerships to initiate the national rollout of SIIMUPASS — transforming how Uganda moves.</p>
+    <div class="cta-buttons">
+      <a href="mailto:Info@ropatech.net" class="btn-cta">✉ Connect with RopaTech</a>
+      <a href="https://arnab1811.github.io/SIMUPASS/general.pdf" target="_blank" rel="noopener noreferrer" class="btn-cta-out">📄 Technical Brief</a>
+    </div>
+    <div class="partners-row">
+      <span class="partner-badge">World Bank</span>
+      <span class="partner-badge">Development Finance Institutions</span>
+      <span class="partner-badge">Private Sector</span>
+      <span class="partner-badge">Government of Uganda</span>
+      <span class="partner-badge">Urban Service Managers</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section" aria-labelledby="contact-heading">
+  <div class="container contact-grid">
+    <div class="fade-up">
+      <div class="section-tag">Get in Touch</div>
+      <h2 class="section-h2" id="contact-heading">Ready to Build<br>Uganda's Digital Future?</h2>
+      <p class="section-sub">Whether you represent a government body, infrastructure operator, or development finance institution — we want to hear from you.</p>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="cc-icon">📍</div>
+          <div>
+            <div class="cc-label">Office Address</div>
+            <div class="cc-val">Aga House, 2nd Floor, Mawanda Road, Kampala, Uganda</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">✉️</div>
+          <div>
+            <div class="cc-label">Email</div>
+            <div class="cc-val"><a href="mailto:Info@ropatech.net">Info@ropatech.net</a></div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">📞</div>
+          <div>
+            <div class="cc-label">Phone</div>
+            <div class="cc-val"><a href="tel:+256777766753">+256 777 766 753</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-map-placeholder fade-up delay-2">
+      <div class="map-icon">🗺️</div>
+      <div class="map-text">
+        <strong>RopaTech Solutions</strong>
+        Aga House, 2nd Floor<br>
+        Mawanda Road · Kampala, Uganda
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">SIIM<span>U</span>PASS</div>
+      <span class="footer-sub">by RopaTech Solutions · Kampala, Uganda</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://arnab1811.github.io/SIMUPASS/general.pdf" target="_blank" rel="noopener noreferrer">Pitch Deck</a>
+      <a href="mailto:Info@ropatech.net">Email Us</a>
+      <a href="tel:+256777766753">Call</a>
+    </div>
+    <div class="footer-copy">© 2026 RopaTech Solutions. Engineering efficient mobility for Uganda.</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
